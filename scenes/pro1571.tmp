@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://cbiwswdpkjo1q"]
+
+[ext_resource type="Script" path="res://scripts/building_placement.gd" id="1_pg6c1"]
+[ext_resource type="Script" path="res://scripts/proc_world.gd" id="1_rnb4t"]
+[ext_resource type="TileSet" uid="uid://b2e6ijjwe3jhv" path="res://data/basic_tiles.tres" id="2_uroc2"]
+[ext_resource type="Script" path="res://scripts/camera_movement.gd" id="3_pbbgy"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_jcsly"]
+noise_type = 3
+frequency = 0.02
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_thvkc"]
+noise = SubResource("FastNoiseLite_jcsly")
+
+[node name="proc_world" type="Node2D"]
+script = ExtResource("1_rnb4t")
+noise_height_text = SubResource("NoiseTexture2D_thvkc")
+fast_noise = SubResource("FastNoiseLite_jcsly")
+width = 40
+height = 40
+
+[node name="TileMap" type="TileMap" parent="."]
+y_sort_enabled = true
+tile_set = ExtResource("2_uroc2")
+format = 2
+layer_0/name = "terrain"
+layer_0/y_sort_enabled = true
+layer_1/name = "buildings"
+layer_1/y_sort_enabled = true
+layer_1/z_index = 1
+layer_1/tile_data = PackedInt32Array()
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.15, 0.15)
+script = ExtResource("3_pbbgy")
+
+[node name="building_placement" type="Node2D" parent="."]
+script = ExtResource("1_pg6c1")

@@ -1,0 +1,80 @@
+[gd_scene load_steps=9 format=3 uid="uid://cbiwswdpkjo1q"]
+
+[ext_resource type="Script" path="res://scripts/proc_world.gd" id="1_2kt66"]
+[ext_resource type="TileSet" uid="uid://b2e6ijjwe3jhv" path="res://data/basic_tiles.tres" id="2_y0h61"]
+[ext_resource type="Script" path="res://scripts/camera_movement.gd" id="3_i6bt8"]
+[ext_resource type="Script" path="res://scripts/building_placement.gd" id="4_xhjjo"]
+[ext_resource type="Script" path="res://scripts/building_menu_handler.gd" id="5_yah08"]
+[ext_resource type="Texture2D" uid="uid://bjg3e4hyphluy" path="res://assets/buttons/right-arrow (2).png" id="6_ooi17"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_jcsly"]
+noise_type = 3
+frequency = 0.02
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_thvkc"]
+noise = SubResource("FastNoiseLite_jcsly")
+
+[node name="proc_world" type="Node2D"]
+script = ExtResource("1_2kt66")
+noise_height_text = SubResource("NoiseTexture2D_thvkc")
+fast_noise = SubResource("FastNoiseLite_jcsly")
+width = 40
+height = 40
+
+[node name="TileMap" type="TileMap" parent="."]
+y_sort_enabled = true
+tile_set = ExtResource("2_y0h61")
+format = 2
+layer_0/name = "terrain"
+layer_0/y_sort_enabled = true
+layer_1/name = "buildings"
+layer_1/y_sort_enabled = true
+layer_1/z_index = 1
+layer_1/tile_data = PackedInt32Array()
+layer_2/name = "blueprints"
+layer_2/y_sort_enabled = true
+layer_2/z_index = 1
+layer_2/tile_data = PackedInt32Array()
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.15, 0.15)
+script = ExtResource("3_i6bt8")
+
+[node name="building_placement" type="Node2D" parent="."]
+script = ExtResource("4_xhjjo")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="buildings_picker" type="Panel" parent="UI"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("5_yah08")
+
+[node name="menu_reveal" type="Button" parent="UI/buildings_picker"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = -42.0
+offset_right = 143.0
+
+[node name="TextureRect" type="TextureRect" parent="UI/buildings_picker/menu_reveal"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -17.5
+offset_top = -18.0
+offset_right = 16.5
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.5708
+pivot_offset = Vector2(17, 18)
+texture = ExtResource("6_ooi17")
+expand_mode = 1
