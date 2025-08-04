@@ -9,7 +9,7 @@ var BUILDING_BUTTON = preload("res://scenes/UI_elements/building_button.tscn")
 
 func _ready():
 
-	for i in 5: # button generation lol
+	for i in 5: # button generation
 		genButtons(i, i+1)
 		
 	menu_reveal.pressed.connect(self._button_pressed)
