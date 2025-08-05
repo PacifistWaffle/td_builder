@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bcp7usb65jslq"]
 
-[ext_resource type="Script" uid="uid://d5kt1n111h2g" path="res://scenes/UI_elements/building_button.gd" id="1_ausvl"]
 [ext_resource type="Script" uid="uid://ccicd2523dqw" path="res://scripts/texture_loader.gd" id="2_01oou"]
+[ext_resource type="Script" uid="uid://buvyai015iy2a" path="res://scripts/build_id_passer.gd" id="2_ausvl"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5lbad"]
 
@@ -16,7 +16,9 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-script = ExtResource("1_ausvl")
+
+[node name="build_id" type="Node2D" parent="."]
+script = ExtResource("2_ausvl")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
@@ -36,4 +38,4 @@ texture = SubResource("CompressedTexture2D_5lbad")
 expand_mode = 1
 script = ExtResource("2_01oou")
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button" to="build_id" method="_on_button_pressed"]

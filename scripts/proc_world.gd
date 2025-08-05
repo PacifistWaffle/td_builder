@@ -34,10 +34,10 @@ func generate_world():
 			if noise_val <= -0.1:
 				tile_map.set_cell(0, Vector2(x,y), 0, atlas_water)
 
-			elif noise_val > -0.1 && noise_val < -0.05:
+			elif noise_val > -0.1 && noise_val < -0.07:
 				tile_map.set_cell(0, Vector2(x,y), 0, atlas_dirt)
 				
-			elif noise_val >= -0.05 :
+			elif noise_val >= -0.07 :
 				tile_map.set_cell(0, Vector2(x,y), 0, atlas_grass)
 				
 				var temp: int = randi_range(1 , 20) #random trees (for now disabled)

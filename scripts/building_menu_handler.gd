@@ -2,6 +2,7 @@ extends Panel
 
 @onready var menu_reveal = $menu_reveal
 @onready var texture_rect = $menu_reveal/TextureRect
+@onready var build_lib: Node2D = $"../../build_lib"
 
 var clicked : bool = false
 
@@ -9,7 +10,7 @@ var BUILDING_BUTTON = preload("res://scenes/UI_elements/building_button.tscn")
 
 func _ready():
 
-	for i in 5: # button generation
+	for i in build_lib.build_dict.size(): # button generation
 		genButtons(i, i+1)
 		
 	menu_reveal.pressed.connect(self._button_pressed)
@@ -24,7 +25,7 @@ func genButtons(pos, id):
 	
 	add_child(temp)
 
-func _button_pressed():
+func _button_pressed(): #button anim 
 	var tween = get_tree().create_tween()
 	
 	if clicked == false :

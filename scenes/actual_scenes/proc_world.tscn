@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cbiwswdpkjo1q"]
+[gd_scene load_steps=14 format=3 uid="uid://cbiwswdpkjo1q"]
 
 [ext_resource type="Script" uid="uid://dimsmedu2e37q" path="res://scripts/proc_world.gd" id="1_2kt66"]
 [ext_resource type="TileSet" uid="uid://b2e6ijjwe3jhv" path="res://data/basic_tiles.tres" id="2_y0h61"]
@@ -8,13 +8,19 @@
 [ext_resource type="Texture2D" uid="uid://bjg3e4hyphluy" path="res://assets/buttons/right-arrow (2).png" id="6_ooi17"]
 [ext_resource type="Script" uid="uid://c7mdkgokrlmp2" path="res://scripts/menu_editing_reveal.gd" id="7_li7r5"]
 [ext_resource type="Script" uid="uid://dh232old7y630" path="res://scripts/resources_counting.gd" id="8_0lkyu"]
+[ext_resource type="Script" uid="uid://bulcqhvi2n1c6" path="res://data/build_lib.gd" id="9_w1pnt"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_7qcph"]
+noise_type = 5
+frequency = 0.017
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_thvkc"]
+seamless_blend_skirt = 0.0
+noise = SubResource("FastNoiseLite_7qcph")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_jcsly"]
 noise_type = 3
 frequency = 0.02
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_thvkc"]
-noise = SubResource("FastNoiseLite_jcsly")
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pwxpv"]
 load_path = "res://.godot/imported/right-arrow (2).png-d1c3d112359b24096b61427b0132c676.ctex"
@@ -23,8 +29,11 @@ load_path = "res://.godot/imported/right-arrow (2).png-d1c3d112359b24096b61427b0
 script = ExtResource("1_2kt66")
 noise_height_text = SubResource("NoiseTexture2D_thvkc")
 fast_noise = SubResource("FastNoiseLite_jcsly")
-width = 40
-height = 40
+width = 300
+height = 300
+
+[node name="build_lib" type="Node2D" parent="."]
+script = ExtResource("9_w1pnt")
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
@@ -147,7 +156,7 @@ offset_right = 54.0
 offset_bottom = 30.0
 text = "Wood:"
 
-[node name="wood_amount" type="Label" parent="UI/resources/wood"]
+[node name="w_amount_ui" type="Label" parent="UI/resources/wood"]
 layout_mode = 0
 offset_left = 59.0
 offset_top = 8.0
@@ -174,7 +183,7 @@ offset_right = 55.0
 offset_bottom = 31.0
 text = "Stone:"
 
-[node name="stone_amount" type="Label" parent="UI/resources/stone"]
+[node name="s_amount_ui" type="Label" parent="UI/resources/stone"]
 layout_mode = 0
 offset_left = 61.0
 offset_top = 9.0

@@ -1,9 +1,9 @@
 extends Camera2D
 
-var zoom_min : float = 0.1
+var zoom_min : float = 0.07
 var zoom_max : float = 2.0
 var zoom_speed : float = 0.01
-var dragSensitivity : float = 3.0
+var dragSensitivity : float = 8.0
 
 func _input(event): 
 	
