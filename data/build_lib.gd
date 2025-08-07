@@ -43,7 +43,7 @@ var build_dict = {
 		source_id = 1,
 		layer = 1,
 		placable = "ground",
-		unlocked = false,
+		unlocked = true,
 		cost_w = 1,
 		cost_s = 1
 		},

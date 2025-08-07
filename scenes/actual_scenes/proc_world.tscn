@@ -52,9 +52,6 @@ layer_2/z_index = 1
 zoom = Vector2(0.15, 0.15)
 script = ExtResource("3_i6bt8")
 
-[node name="building_placement" type="Node2D" parent="."]
-script = ExtResource("4_xhjjo")
-
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="buildings_picker" type="Panel" parent="UI"]
@@ -66,6 +63,10 @@ offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("5_yah08")
+
+[node name="building_placement" type="Node2D" parent="UI/buildings_picker"]
+position = Vector2(0, -1080)
+script = ExtResource("4_xhjjo")
 
 [node name="menu_reveal" type="Button" parent="UI/buildings_picker"]
 layout_mode = 0
@@ -191,4 +192,4 @@ offset_right = 111.0
 offset_bottom = 32.0
 text = "0"
 
-[connection signal="pressed" from="UI/buildings_picker/menu_reveal" to="building_placement" method="_on_menu_reveal_pressed"]
+[connection signal="pressed" from="UI/buildings_picker/menu_reveal" to="UI/buildings_picker/building_placement" method="_on_menu_reveal_pressed"]

@@ -15,17 +15,13 @@ func _ready():
 	var temp1 = 0
 	
 	for i in build_lib.build_dict.size(): # button generation
+
+
 		
-		temp1 += 1
-		
-		if build_lib.build_dict[str("building_", temp1)]["unlocked"] == true:
+		if build_lib.build_dict[str("building_", i + 1)]["unlocked"] == true:
 			
-			genButtons(temp1 - 1, temp1)
-			
-		else:
-			
-			pass
-			
+			genButtons(temp1, i+1)
+			temp1 += 1
 		
 	menu_reveal.pressed.connect(self._button_pressed)
 	
