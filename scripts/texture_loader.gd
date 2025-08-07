@@ -3,5 +3,5 @@ extends TextureRect
 
 
 func _ready():
-	var sperma = button.name 
-	self.texture = load(str("res://assets/buttons/",sperma,".png"))
+	var temp = button.name 
+	self.texture = load(str("res://assets/buttons/",temp,".png"))

@@ -1,13 +1,13 @@
 extends Node2D
 
-@export var atlas_building : Vector2i
-@export var building_name : String
-@export var source_id : int
-@export var layer : int
-@export var placable : String
-@export var unlocked : bool
-@export var cost_w : int
-@export var cost_s : int
+var atlas_building : Vector2i
+var building_name : String
+var source_id : int
+var layer : int
+var placable : String
+var unlocked : bool
+var cost_w : int
+var cost_s : int
 
 
 var build_dict = {
@@ -43,18 +43,18 @@ var build_dict = {
 		source_id = 1,
 		layer = 1,
 		placable = "ground",
-		unlocked = true,
+		unlocked = false,
 		cost_w = 1,
 		cost_s = 1
 		},
 		
 	"building_4": {	
 		
-		atlas_building = Vector2i(5,0),
-		building_name = "bridge",
+		atlas_building = Vector2i(4,0),
+		building_name = "tree",
 		source_id = 1,
 		layer = 1,
-		placable = "water",
+		placable = "ground",
 		unlocked = true,
 		cost_w = 1,
 		cost_s = 1
@@ -71,41 +71,7 @@ var build_dict = {
 		cost_w = 1,
 		cost_s = 1
 		},
-		
-			"building_6": {	
-		
-		atlas_building = Vector2i(5,0),
-		building_name = "bridge",
-		source_id = 1,
-		layer = 1,
-		placable = "water",
-		unlocked = true,
-		cost_w = 1,
-		cost_s = 1
-		},
-		
-			"building_7": {	
-		
-		atlas_building = Vector2i(5,0),
-		building_name = "bridge",
-		source_id = 1,
-		layer = 1,
-		placable = "water",
-		unlocked = true,
-		cost_w = 1,
-		cost_s = 1
-		},
-			"building_8": {	
-		
-		atlas_building = Vector2i(5,0),
-		building_name = "bridge",
-		source_id = 1,
-		layer = 1,
-		placable = "water",
-		unlocked = true,
-		cost_w = 1,
-		cost_s = 1
-		},
+
 }
 
 #

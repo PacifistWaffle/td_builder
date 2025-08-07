@@ -7,13 +7,6 @@ extends Node2D
 var clicked : bool = false
 
 
-func _on_menu_reveal_pressed():
-	if clicked == false:
-		clicked = true
-	elif clicked == true:
-		clicked = false
-
-
 #func _unhandled_input(_event):
 #
 	#if clicked == true:

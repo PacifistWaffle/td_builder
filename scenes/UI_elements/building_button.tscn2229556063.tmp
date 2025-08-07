@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcp7usb65jslq"]
+
+[ext_resource type="Script" uid="uid://d5kt1n111h2g" path="res://scenes/UI_elements/building_button.gd" id="1_ausvl"]
+[ext_resource type="Script" uid="uid://ccicd2523dqw" path="res://scripts/texture_loader.gd" id="2_01oou"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5lbad"]
+
+[node name="Building_Button" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1745.0
+offset_bottom = -930.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("1_ausvl")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+offset_right = 175.0
+offset_bottom = 150.0
+
+[node name="TextureRect" type="TextureRect" parent="Button"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -50.0
+offset_right = 50.0
+offset_bottom = 150.0
+grow_horizontal = 2
+texture = SubResource("CompressedTexture2D_5lbad")
+expand_mode = 1
+script = ExtResource("2_01oou")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
