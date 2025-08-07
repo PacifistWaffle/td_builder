@@ -4,6 +4,7 @@ extends Panel
 @onready var texture_rect = $menu_reveal/TextureRect
 @onready var build_lib: Node2D = $"../../build_lib"
 @onready var building_button: Control = $"."
+@onready var building_placement: Node2D = $building_placement
 
 
 var clicked : bool = false

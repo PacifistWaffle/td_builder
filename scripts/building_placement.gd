@@ -7,6 +7,10 @@ extends Node2D
 var clicked : bool = false
 
 
+func _function():
+	print("jebać żydów")
+	pass
+
 #func _unhandled_input(_event):
 #
 	#if clicked == true:
