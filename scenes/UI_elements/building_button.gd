@@ -1,7 +1,7 @@
 extends Control
 
 @onready var building_button: Control = $".."
-@onready var building_placement: Node2D = $UI/buildings_picker/building_placement
+@onready var building_placement: Node2D = $"../../../building_placement"
 
 var build_id : String
 
@@ -10,4 +10,5 @@ func _ready():
 
 
 func _on_button_pressed():
-	print(build_id)
+	building_placement._function(build_id)
+	#print(build_id)
