@@ -30,8 +30,8 @@ load_path = "res://.godot/imported/right-arrow (2).png-d1c3d112359b24096b61427b0
 script = ExtResource("1_2kt66")
 noise_height_text = SubResource("NoiseTexture2D_thvkc")
 fast_noise = SubResource("FastNoiseLite_jcsly")
-width = 300
-height = 300
+width = 20
+height = 20
 
 [node name="building_placement" type="Node2D" parent="."]
 script = ExtResource("4_xhjjo")
