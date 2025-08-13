@@ -50,11 +50,11 @@ var build_dict = {
 		
 	"building_4": {	
 		
-		atlas_building = Vector2i(4,0),
+		atlas_building = Vector2i(5,0),
 		building_name = "tree",
 		source_id = 1,
 		layer = 1,
-		placable = "ground",
+		placable = "water",
 		unlocked = true,
 		cost_w = 1,
 		cost_s = 1
@@ -62,11 +62,11 @@ var build_dict = {
 		
 	"building_5": {	
 		
-		atlas_building = Vector2i(5,0),
+		atlas_building = Vector2i(4,0),
 		building_name = "bridge",
 		source_id = 1,
 		layer = 1,
-		placable = "water",
+		placable = "ground",
 		unlocked = true,
 		cost_w = 1,
 		cost_s = 1

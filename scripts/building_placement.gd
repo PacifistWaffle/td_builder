@@ -1,11 +1,18 @@
 extends Node2D
 
-@onready var tile_map = $"../TileMap"
+@onready var tile_map: TileMap = $"../TileMap"
+
 @onready var build_lib: Node2D = $"../build_lib"
 @onready var resources: Panel = $"../UI/resources"
 
 var clicked : bool = false
 var build_name : String
+
+func _on_menu_reveal_pressed():
+	if clicked == false:
+		clicked = true
+	elif clicked == true:
+		clicked = false
 
 func _function(x):
 	build_name = x
@@ -22,8 +29,7 @@ func _unhandled_input(_event):
 			var tile_data : TileData = tile_map.get_cell_tile_data(0, tile_mouse_pos)
 			
 			var is_empty = tile_map.get_cell_tile_data(1, tile_mouse_pos + Vector2i(-1,-1))
-			
-			var curr_build = build_lib.build_dict.build_name
+			var curr_build = build_lib.build_dict[build_name]
 
 			
 			if tile_data:
