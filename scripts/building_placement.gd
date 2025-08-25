@@ -16,7 +16,7 @@ func _on_menu_reveal_pressed():
 
 func _function(x):
 	build_name = x
-	pass
+	pass		
 
 func _unhandled_input(_event):
 
