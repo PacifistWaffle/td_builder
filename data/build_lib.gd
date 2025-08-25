@@ -8,6 +8,7 @@ var placable : String
 var unlocked : bool
 var cost_w : int
 var cost_s : int
+var cost_g : int
 
 
 var build_dict = {
@@ -21,7 +22,8 @@ var build_dict = {
 		placable = "ground",
 		unlocked = true,
 		cost_w = 1,
-		cost_s = 1
+		cost_s = 1,
+		cost_g = 1
 		},
 		
 	"building_2": {	
@@ -33,7 +35,8 @@ var build_dict = {
 		placable = "ground",
 		unlocked = true,
 		cost_w = 1,
-		cost_s = 1
+		cost_s = 1,
+		cost_g = 1
 		},
 		
 	"building_3": {	
@@ -45,7 +48,8 @@ var build_dict = {
 		placable = "ground",
 		unlocked = true,
 		cost_w = 1,
-		cost_s = 1
+		cost_s = 1,
+		cost_g = 1
 		},
 		
 	"building_4": {	
@@ -57,7 +61,8 @@ var build_dict = {
 		placable = "water",
 		unlocked = true,
 		cost_w = 1,
-		cost_s = 1
+		cost_s = 1,
+		cost_g = 1
 		},
 		
 	"building_5": {	
@@ -69,7 +74,8 @@ var build_dict = {
 		placable = "ground",
 		unlocked = true,
 		cost_w = 1,
-		cost_s = 1
+		cost_s = 1,
+		cost_g = 1
 		},
 
 }

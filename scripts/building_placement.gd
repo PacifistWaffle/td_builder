@@ -1,12 +1,12 @@
 extends Node2D
 
 @onready var tile_map: TileMap = $"../TileMap"
-
 @onready var build_lib: Node2D = $"../build_lib"
 @onready var resources: Panel = $"../UI/resources"
 
 var clicked : bool = false
 var build_name : String
+var curr_tile : Vector2i
 
 func _on_menu_reveal_pressed():
 	if clicked == false:
@@ -20,13 +20,16 @@ func _function(x):
 
 func _unhandled_input(_event):
 
+	var tile_mouse_pos = tile_map.local_to_map(get_global_mouse_position()) 
+	var tile_data : TileData = tile_map.get_cell_tile_data(0, tile_mouse_pos)
+	
+	
+	
 	if clicked == true:
 		
 		if Input.is_action_just_pressed("place"):
 			
-			var mouse_pos = get_global_mouse_position()
-			var tile_mouse_pos = tile_map.local_to_map(mouse_pos) 
-			var tile_data : TileData = tile_map.get_cell_tile_data(0, tile_mouse_pos)
+
 			
 			var is_empty = tile_map.get_cell_tile_data(1, tile_mouse_pos + Vector2i(-1,-1))
 			var curr_build = build_lib.build_dict[build_name]
@@ -39,10 +42,11 @@ func _unhandled_input(_event):
 					
 					if is_empty == null:
 						
-						if resources.wood_am >= curr_build.cost_w && resources.stone_am >= curr_build.cost_s:
+						if resources.wood_am >= curr_build.cost_w && resources.stone_am >= curr_build.cost_s && resources.gold_am >= curr_build.cost_g:
 
 							resources.wood_am -= curr_build.cost_w
 							resources.stone_am -= curr_build.cost_s
+							resources.gold_am -= curr_build.cost_g
 							
 							tile_map.set_cell(curr_build.layer, tile_mouse_pos + Vector2i(-1,-1), curr_build.source_id, curr_build.atlas_building)
 						

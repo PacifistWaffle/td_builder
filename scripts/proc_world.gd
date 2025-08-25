@@ -26,7 +26,12 @@ func _ready():
 
 func generate_world():
 	
+	tile_map.fix_invalid_tiles()
+	
+	@warning_ignore("integer_division")
 	for x in range(-width/2, width/2):
+		
+		@warning_ignore("integer_division")
 		for y in range(-height/2, height/2):
 			
 			var noise_val : float = noise.get_noise_2d(x,y)
